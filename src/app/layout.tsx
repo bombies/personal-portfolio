@@ -1,12 +1,13 @@
 import './globals.scss'
 import {Inter} from 'next/font/google'
 import Navbar from "@/components/nav/Navbar";
+import Footer from "@/components/footer/Footer";
 
 const inter = Inter({subsets: ['latin']})
 
 export const metadata = {
-    title: 'Ajani Green',
-    description: 'A Jamaican Full Stack React Developer.',
+    title: 'Ajani Green - Full Stack Developer',
+    description: 'A Full Stack React Developer.',
 }
 
 export default function RootLayout({
@@ -19,6 +20,7 @@ export default function RootLayout({
         <body className={inter.className}>
         <Navbar/>
         {children}
+        <Footer />
         </body>
         </html>
     )
