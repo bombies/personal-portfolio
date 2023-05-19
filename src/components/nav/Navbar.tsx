@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link";
 import HyperLink from "@/components/HyperLink";
 
@@ -10,6 +12,18 @@ export default function Navbar() {
             <div className='flex gap-12'>
                 <HyperLink href='/#projects' label='projects' />
                 <HyperLink href='/#skills' label='skills' />
+                <p
+                    className='hover:text-primary transition-faster tracking-[.25em] cursor-pointer'
+                    onClick={e => {
+                        const resumeUrl = 'files/Ajani Green Resume.pdf'
+                        const aTag = document.createElement("a")
+                        aTag.href = resumeUrl
+                        aTag.setAttribute('download', 'Ajani Green Resume.pdf')
+                        document.body.appendChild(aTag)
+                        aTag.click()
+                        aTag.remove()
+                    }}
+                >resume</p>
             </div>
         </div>
     )
