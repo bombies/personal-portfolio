@@ -17,9 +17,12 @@ module.exports = {
       'phone-min': {'min': '615px'},
     },
     extend: {
+      animation: {
+        'bounce-slow': 'bounce 5s infinite'
+      },
       colors: {
         primary: "#ff6f6f",
-        secondary: "#a24646",
+        secondary: "#ffb8b8",
         danger: "#ff2c2c",
         warning: "#ffa700",
       },

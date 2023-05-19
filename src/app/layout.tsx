@@ -1,4 +1,5 @@
-import './globals.scss'
+import './styles/globals.scss'
+import './styles/embla.scss'
 import {Inter} from 'next/font/google'
 import Navbar from "@/components/nav/Navbar";
 import Footer from "@/components/footer/Footer";

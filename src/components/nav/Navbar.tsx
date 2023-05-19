@@ -41,11 +41,9 @@ export default function Navbar() {
 
             <div
                 ref={mobileNavRef}
-                className={`w-full bg-opacity-50 bg-black backdrop-blur-md h-fit flex tablet:flex-col justify-between py-5 px-12 ${isOpen ? 'tablet:visible' : 'tablet:invisible tablet:opacity-0'}`}
+                className={`w-full text-center bg-opacity-50 bg-black backdrop-blur-md h-fit flex tablet:flex-col justify-between py-5 px-12 ${isOpen ? '' : 'tablet:hidden'}`}
             >
-                <Link href='/'>
-                    <p className='tracking-[.5em] text-primary drop-shadow-glow-primary-md'>ajani</p>
-                </Link>
+                <Link href='/' className='tracking-[.5em] text-primary drop-shadow-glow-primary-md'>ajani</Link>
                 <div className='flex tablet:flex-col gap-12'>
                     <HyperLink href='/#projects' label='projects' />
                     <HyperLink href='/#skills' label='skills' />

@@ -10,13 +10,14 @@ type Props = {
     icon: string | StaticImageData
     size?: number
     onClick?: MouseEventHandler<HTMLDivElement>
-    toast?: ToastDataProps;
+    toast?: ToastDataProps
+    className?: string
 }
 
 export default function IconButton(props: Props) {
     return (
         <GenericImage
-            className='transition-faster hover:scale-105'
+            className={`transition-faster hover:scale-105 ${props.className || ''}`}
             src={props.icon}
             width={props.size ?? 1.25}
             onClick={(e) => {

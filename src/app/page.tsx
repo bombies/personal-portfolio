@@ -3,6 +3,7 @@ import Button from "@/components/button/Button";
 import ImageGrid from "@/components/image-grid/ImageGrid";
 import ImageGridItem from "@/components/image-grid/ImageGridItem";
 import ContentSection from "@/components/ContentSection";
+import List from "@/components/List";
 
 const sfMono = localFont({
     src: [
@@ -27,7 +28,7 @@ export default function Home() {
                     <p className={`text-lg phone:text-sm text-left ${sfMono.variable} font-mono max-w-xl phone:max-w-xs mb-6`}>I&apos;m a student
                         full stack software engineer. I have a passion for creating all sorts of software but I enjoy
                         web-design the most.</p>
-                    <Button label='explore' href='#projects' width={6} height={2.5} />
+                    <Button label='explore' href='#projects' newTab={false} width={6} height={2.5} />
                 </div>
             </div>
             <ContentSection title='my projects' id='projects'>
@@ -35,38 +36,18 @@ export default function Home() {
                     <ImageGrid>
                         <ImageGridItem
                             href='/robertify'
-                            title='robertifyyyyyyyyyyyyyyyyyyyyy'
+                            title='robertify'
                             color='#00D61560'
                         />
                         <ImageGridItem
-                            href='/robertify'
-                            title='robertifyyyyyyyyyyyyyyyyyyyyy'
-                            color='#00D61560'
+                            href='/car-mart'
+                            title='the car mart'
+                            color='#009ddb60'
                         />
                         <ImageGridItem
-                            href='/robertify'
-                            title='robertifyyyyyyyyyyyyyyyyyyyyy'
-                            color='#00D61560'
-                        />
-                        <ImageGridItem
-                            href='/robertify'
-                            title='robertifyyyyyyyyyyyyyyyyyyyyy'
-                            color='#00D61560'
-                        />
-                        <ImageGridItem
-                            href='/robertify'
-                            title='robertifyyyyyyyyyyyyyyyyyyyyy'
-                            color='#00D61560'
-                        />
-                        <ImageGridItem
-                            href='/robertify'
-                            title='robertifyyyyyyyyyyyyyyyyyyyyy'
-                            color='#00D61560'
-                        />
-                        <ImageGridItem
-                            href='/robertify'
-                            title='robertifyyyyyyyyyyyyyyyyyyyyy'
-                            color='#00D61560'
+                            href='/greens-pub'
+                            title="green's pub"
+                            color='#26ff8160'
                         />
                     </ImageGrid>
                 </div>
@@ -74,9 +55,36 @@ export default function Home() {
             <ContentSection
                 title='my skills'
                 id='skills'
-                description='With only 3 years of coding experience (may 2023), I have ammassed fluency in several programming languages and frameworks. Such tools can be found below.'
+                description='With only 3 years of coding experience (written 2023), I have ammassed fluency in several programming languages and frameworks. Such tools can be found below'
             >
-
+                <div className='flex space-x-6'>
+                    <List
+                        heading='programming languages'
+                        items={[
+                            'Java',
+                            'Kotlin',
+                            'JavaScript',
+                            'TypeScript',
+                            'Python',
+                            'C/C++',
+                            'Rust (Beginner)',
+                            'SQL'
+                        ]}
+                    />
+                    <List
+                        heading='frameworks & libraries'
+                        items={[
+                            'ReactJS',
+                            'Next.js',
+                            'NestJS',
+                            'Express',
+                            'TailwindCSS',
+                            'Sass',
+                            'Java Spring',
+                            'Ktor'
+                        ]}
+                    />
+                </div>
             </ContentSection>
         </main>
     )

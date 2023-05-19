@@ -1,4 +1,5 @@
 import React from "react";
+import parse from 'html-react-parser'
 
 interface Props extends React.PropsWithChildren {
     id?: string,
@@ -23,7 +24,7 @@ export default function ContentSection(props: Props) {
                 {props.subTitle && <h1 className='font-semibold text-neutral-400 text-3xl phone:text-lg tracking-widest'>{props.subTitle}</h1>}
             </div>
             <div className='p-3'>
-                {props.description && <p className='tracking-widest max-w-2xl phone:text-xs'>{props.description}</p>}
+                {props.description && <p className='tracking-widest max-w-2xl phone:text-xs mb-3'>{parse(props.description)}</p>}
                 {props.children}
             </div>
         </div>
