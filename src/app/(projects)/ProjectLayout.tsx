@@ -27,6 +27,7 @@ const sfMono = localFont({
 interface Props extends React.PropsWithChildren {
     icon?: string
     website: string
+    secondaryWebsite?: string
     title: string
     subTitle: string
     images: string[]
@@ -61,7 +62,13 @@ export default function ProjectLayout(props: Props) {
                     </div>
                     <h1 className={`text-5xl max-w-4xl phone:max-w-lg phone:text-lg text-left ${sfMono.variable} font-mono mb-3 mt-3`}>{props.title}</h1>
                     <p className={`text-lg phone:text-sm text-left ${sfMono.variable} font-mono max-w-xl phone:max-w-xs mb-6`}>{props.subTitle}</p>
-                    <Button type={ButtonType.CTA} label='visit' href={props.website} icon={linkIcon} width={6} height={3} />
+                    <div className='flex gap-4'>
+                        <Button type={ButtonType.CTA} label='visit' href={props.website} icon={linkIcon} width={6}
+                                height={3}/>
+                        {props.secondaryWebsite &&
+                            <Button type={ButtonType.CTA} label='also visit' href={props.secondaryWebsite}
+                                    icon={linkIcon} width={7} height={3}/>}
+                    </div>
                 </div>
             </div>
             {
