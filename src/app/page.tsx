@@ -20,7 +20,10 @@ export default function Home() {
     return (
         <main>
             <div
-                className='pt-32 h-[30rem] align-middle bg-gradient-conic from-neutral-950 to-red-950'
+                className='pt-32 h-[30rem] align-middle'
+                style={{
+                    backgroundImage: 'url(https://i.imgur.com/9bCFvHs.png)'
+                }}
             >
                 <div className='pl-24 phone:pl-6'>
                     <h1 className={`text-5xl phone:text-lg text-left ${sfMono.variable} font-mono mb-3`}>hey,<br/> i&apos;m Ajani.
