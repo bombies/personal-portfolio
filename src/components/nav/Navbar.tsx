@@ -3,6 +3,7 @@
 import Link from "next/link";
 import HyperLink from "@/components/HyperLink";
 import {useEffect, useRef, useState} from "react";
+import {CSSTransition} from "react-transition-group";
 
 export default function Navbar() {
     const [isOpen, setOpen] = useState(false);
@@ -25,6 +26,31 @@ export default function Navbar() {
         }
     }, [mobileNavRef, hamburgerRef]);
 
+    const nav = (
+        <div
+            ref={mobileNavRef}
+            className={`w-full text-center bg-opacity-50 bg-black backdrop-blur-md h-fit flex tablet:flex-col justify-between py-5 px-12`}
+        >
+            <Link href='/' className='tracking-[.5em] text-primary drop-shadow-glow-primary-md'>ajani</Link>
+            <div className='flex tablet:flex-col gap-12'>
+                <HyperLink href='/#projects' label='projects'/>
+                <HyperLink href='/#skills' label='skills'/>
+                <p
+                    className='hover:text-primary transition-faster tracking-[.25em] cursor-pointer'
+                    onClick={e => {
+                        const resumeUrl = 'files/Ajani Green Resume.pdf'
+                        const aTag = document.createElement("a")
+                        aTag.href = resumeUrl
+                        aTag.setAttribute('download', 'Ajani Green Resume.pdf')
+                        document.body.appendChild(aTag)
+                        aTag.click()
+                        aTag.remove()
+                    }}
+                >resume</p>
+            </div>
+        </div>
+    )
+
     return (
         <nav className='absolute z-50 w-full'>
             <div
@@ -38,30 +64,19 @@ export default function Navbar() {
                 <div
                     className={'rounded-full h-[.25rem] transition-fast ' + (isOpen ? 'bg-primary' : 'bg-white dark:bg-neutral-900')}></div>
             </div>
-
-            <div
-                ref={mobileNavRef}
-                className={`w-full text-center bg-opacity-50 bg-black backdrop-blur-md h-fit flex tablet:flex-col justify-between py-5 px-12 ${isOpen ? '' : 'tablet:hidden'}`}
-            >
-                <Link href='/' className='tracking-[.5em] text-primary drop-shadow-glow-primary-md'>ajani</Link>
-                <div className='flex tablet:flex-col gap-12'>
-                    <HyperLink href='/#projects' label='projects' />
-                    <HyperLink href='/#skills' label='skills' />
-                    <p
-                        className='hover:text-primary transition-faster tracking-[.25em] cursor-pointer'
-                        onClick={e => {
-                            const resumeUrl = 'files/Ajani Green Resume.pdf'
-                            const aTag = document.createElement("a")
-                            aTag.href = resumeUrl
-                            aTag.setAttribute('download', 'Ajani Green Resume.pdf')
-                            document.body.appendChild(aTag)
-                            aTag.click()
-                            aTag.remove()
-                        }}
-                    >resume</p>
-                </div>
+            <div className='invisible tablet:visible'>
+                <CSSTransition
+                    in={isOpen}
+                    unmountOnExit
+                    timeout={350}
+                    classNames='navbar'
+                >
+                    {nav}
+                </CSSTransition>
+            </div>
+            <div className='tablet:invisible'>
+                {nav}
             </div>
         </nav>
-
     )
 }

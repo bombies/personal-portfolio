@@ -72,6 +72,25 @@ body {
   background: #292929;
 }
 
+.navbar-enter {
+  position: absolute;
+  transform: translateY(-110%);
+}
+
+.navbar-enter-active {
+  transform: translateY(0%);
+  transition: all 350ms ease;
+}
+
+.navbar-exit {
+  position: absolute;
+}
+
+.navbar-exit-active {
+  transform: translateY(-110%);
+  transition: all 350ms ease;
+}
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
