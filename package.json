@@ -14,7 +14,7 @@
     "@types/react-dom": "18.2.4",
     "@types/react-transition-group": "^4.4.6",
     "autoprefixer": "10.4.14",
-    "embla-carousel-react": "^8.0.0-rc03",
+    "embla-carousel-react": "^8.0.0-rc04",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "html-react-parser": "^3.0.16",
