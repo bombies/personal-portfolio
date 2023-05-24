@@ -28,7 +28,7 @@ export default function Home() {
                 <div className='pl-24 phone:pl-6'>
                     <h1 className={`text-5xl phone:text-lg text-left ${sfMono.variable} font-mono mb-3`}>hey,<br/> i&apos;m Ajani.
                     </h1>
-                    <p className={`text-lg phone:text-sm text-left ${sfMono.variable} font-mono max-w-xl phone:max-w-xs mb-6`}>I&apos;m a student
+                    <p className={`text-lg phone:text-sm text-left ${sfMono.variable} font-mono max-w-xl phone:max-w-xs mb-6`}>I&apos;m a
                         full stack software engineer. I have a passion for creating all sorts of software but I enjoy
                         web-design the most.</p>
                     <Button label='explore' href='#projects' newTab={false} width={6} height={2.5} />
