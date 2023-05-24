@@ -39,7 +39,10 @@ export default function ProjectLayout(props: Props) {
     return (
         <div>
             <div
-                className='py-32 h-[40rem] align-middle bg-gradient-conic from-neutral-950 to-red-950'
+                className='py-32 h-[40rem] align-middle'
+                style={{
+                    backgroundImage: 'url(https://i.imgur.com/9bCFvHs.png)'
+                }}
             >
                 <div className='pl-24 phone:pl-6'>
                     <div className='h-fit w-fit mb-12'>
