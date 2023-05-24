@@ -30,7 +30,7 @@ export default function Home() {
                     </h1>
                     <p className={`text-lg phone:text-sm text-left ${sfMono.variable} font-mono max-w-xl phone:max-w-xs mb-6`}>I&apos;m a
                         full stack software engineer. I have a passion for creating all sorts of software but I enjoy
-                        web-design the most.</p>
+                        web development the most.</p>
                     <Button label='explore' href='#projects' newTab={false} width={6} height={2.5} />
                 </div>
             </div>
