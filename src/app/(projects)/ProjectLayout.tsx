@@ -47,10 +47,9 @@ export default function ProjectLayout(props: Props) {
                 <div className='pl-24 phone:pl-6'>
                     <div className='h-fit w-fit mb-12'>
                         <Link href='/'>
-                            <div className='flex gap-4 my-auto hover:scale-[103%] transition-fast'>
+                            <div className='bg-black/40 hover:bg-neutral-800/40 backdrop-blur-md p-2 rounded-md flex gap-4 my-auto hover:scale-[103%] transition-fast'>
                                 <GenericImage src={backIcon} width={1.5}/>
-                                <p className='text-sm text-primary relative self-center'>go
-                                    home</p>
+                                <p className='text-sm text-primary relative self-center'>go home</p>
                             </div>
                         </Link>
                     </div>
