@@ -11,11 +11,12 @@ export default function GreensPub() {
                 title="green's restaurant & pub management website (in development)"
                 subTitle="A dashboard used to handle the managing of Green's Restaurant & Pub"
                 images={[
-                    'https://i.imgur.com/fuTnktJ.png',
-                    'https://i.imgur.com/mdXDU0u.png',
-                    'https://i.imgur.com/c1NiQOF.png',
-                    'https://i.imgur.com/x5K6xQJ.png',
-                    'https://i.imgur.com/RaaFYH0.gif'
+                    'https://i.imgur.com/q8pQXZq.png',
+                    'https://i.imgur.com/qnHbbji.gif',
+                    'https://i.imgur.com/yUPJSJG.png',
+                    'https://i.imgur.com/Fw3R6Id.gif',
+                    'https://i.imgur.com/ZKXD0Yg.png',
+                    'https://i.imgur.com/IDeXCXg.gif'
                 ]}
             >
                 <ContentSection
