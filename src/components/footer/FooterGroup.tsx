@@ -7,7 +7,7 @@ interface Props extends React.PropsWithChildren {
 export default function FooterGroup(props: Props) {
     return (
         <div className='flex flex-col gap-4'>
-            <h3 className='font-semibold !text-primary text-lg drop-shadow-glow-primary-lg'>{props.heading}</h3>
+            <h3 className='font-semibold !text-primary text-lg'>{props.heading}</h3>
             <div className='flex flex-col gap-4'>
                 {props.children}
             </div>

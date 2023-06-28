@@ -12,17 +12,9 @@ import {useRouter} from "next/navigation";
 import Carousel from "@/components/Carousel";
 import Button from "@/components/button/Button";
 import {ButtonType} from "@/components/button/ButtonType";
+import {SFMono} from "@/app/fonts/fonts";
+import {Divider} from "@nextui-org/react";
 
-const sfMono = localFont({
-    src: [
-        {
-            path: './../fonts/sf-mono/SFMonoRegular.otf',
-            weight: '400',
-            style: 'normal'
-        }
-    ],
-    variable: '--font-sf-mono',
-})
 
 interface Props extends React.PropsWithChildren {
     icon?: string
@@ -39,37 +31,57 @@ export default function ProjectLayout(props: Props) {
     return (
         <div>
             <div
-                className='py-32 h-[40rem] align-middle'
+                className='py-20 h-[40rem] align-middle'
                 style={{
-                    backgroundImage: 'url(https://i.imgur.com/9bCFvHs.png)'
+                    backgroundImage: 'url(static/mesh-567.png)'
                 }}
             >
-                <div className='pl-24 phone:pl-6'>
-                    <div className='h-fit w-fit mb-12'>
-                        <Link href='/'>
-                            <div className='bg-black/40 hover:bg-neutral-800/40 backdrop-blur-md p-2 rounded-md flex gap-4 my-auto hover:scale-[103%] transition-fast'>
-                                <GenericImage src={backIcon} width={1.5}/>
-                                <p className='text-sm text-primary relative self-center'>go home</p>
+                <div className='p-24 phone:p-6 flex justify-center'>
+                    <div>
+                        <div className='h-fit w-fit mb-12'>
+                            <Link href='/'>
+                                <div
+                                    className='bg-black/40 hover:bg-black/70 backdrop-blur-md p-4 border-1 border-white/20 rounded-2xl flex gap-4 my-auto hover:scale-[103%] transition-fast'>
+                                    <GenericImage className='self-center' src={backIcon} width={1.5}/>
+                                    <p className='text-lg text-primary relative self-center'>Go Home</p>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className='transition-fast hover:scale-[101%]'>
+                                <IconButton
+                                    icon={props.icon || projectIcon}
+                                    size={8}
+                                    className='animate-bounce-slow'
+                                    onClick={() => {
+                                        router.push(props.website)
+                                    }}/>
                             </div>
-                        </Link>
-                    </div>
-                    <div className='transition-fast hover:scale-[101%]'>
-                        <IconButton
-                            icon={props.icon || projectIcon}
-                            size={4}
-                            className='animate-bounce-slow'
-                            onClick={() => {
-                                router.push(props.website)
-                            }}/>
-                    </div>
-                    <h1 className={`text-5xl max-w-4xl phone:max-w-lg phone:text-lg text-left ${sfMono.variable} font-mono mb-3 mt-3`}>{props.title}</h1>
-                    <p className={`text-lg phone:text-sm text-left ${sfMono.variable} font-mono max-w-xl phone:max-w-xs mb-6`}>{props.subTitle}</p>
-                    <div className='flex gap-4'>
-                        <Button type={ButtonType.CTA} label='visit' href={props.website} icon={linkIcon} width={6}
-                                height={3}/>
-                        {props.secondaryWebsite &&
-                            <Button type={ButtonType.CTA} label='also visit' href={props.secondaryWebsite}
-                                    icon={linkIcon} width={7} height={3}/>}
+                            <div>
+                                <h1 className={`text-4xl  max-w-lg phone:text-3xl text-left font-black mb-3 tracking-wide text-white capitalize`}>{props.title}</h1>
+                                <p className={`text-xl phone:text-lg text-left max-w-xl tracking-wide phone:max-w-xs mb-6 text-white`}>{props.subTitle}</p>
+                                <div className='flex gap-4'>
+                                    <Button
+                                        type={ButtonType.CTA}
+                                        label='Visit'
+                                        href={props.website}
+                                        icon={linkIcon}
+                                        width={9}
+                                        height={3}
+                                    />
+                                    {props.secondaryWebsite &&
+                                        <Button
+                                            type={ButtonType.CTA}
+                                            label='Also Visit'
+                                            href={props.secondaryWebsite}
+                                            icon={linkIcon}
+                                            width={9}
+                                            height={3}
+                                        />
+                                    }
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

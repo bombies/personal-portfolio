@@ -1,5 +1,8 @@
-import React from "react";
+"use client";
+
+import React, {RefObject} from "react";
 import parse from 'html-react-parser'
+import clsx from "clsx";
 
 interface Props extends React.PropsWithChildren {
     id?: string,
@@ -8,24 +11,33 @@ interface Props extends React.PropsWithChildren {
     subTitle?: string
     description?: string,
     screenHeight?: boolean
+    ref?: RefObject<HTMLDivElement>
 }
 
 export default function ContentSection(props: Props) {
     return (
         <div
             id={props.id}
-            className={`w-full p-12 phone:p-2 ${props.screenHeight ? 'h-screen' : ''}`}
+            className={clsx(
+                'w-full px-48 tablet:px-16 phone:px-8 pt-28 pb-12 mx-auto',
+                props.screenHeight && 'h-screen'
+            )}
             style={{
-                background: `${props.background ? `url(${props.background})` : ""}`
+                background: clsx(props.background && `url(${props.background})`)
             }}
         >
-            <div className='mb-6'>
-                {props.title && <h1 className='font-bold text-5xl phone:text-xl phone:text-center text-primary drop-shadow-glow-primary-md'>{props.title}</h1>}
-                {props.subTitle && <h1 className='font-semibold text-neutral-400 text-3xl phone:text-lg tracking-widest'>{props.subTitle}</h1>}
-            </div>
-            <div className='p-3'>
-                {props.description && <p className='tracking-widest max-w-2xl phone:text-xs mb-3'>{parse(props.description)}</p>}
-                {props.children}
+            <div ref={props.ref}>
+                <div className='mb-6'>
+                    {props.title &&
+                        <h1 className='font-bold text-5xl phone:text-3xl phone:text-center text-primary'>{props.title}</h1>}
+                    {props.subTitle &&
+                        <h1 className='font-semibold text-neutral-400 text-3xl phone:text-lg tracking-widest'>{props.subTitle}</h1>}
+                </div>
+                <div>
+                    {props.description &&
+                        <p className='tracking-wide font-medium max-w-2xl text-lg phone:text-lg mb-3'>{parse(props.description)}</p>}
+                    {props.children}
+                </div>
             </div>
         </div>
     )

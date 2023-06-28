@@ -22,7 +22,7 @@ export const getButtonStyle = (type?: ButtonType): string => {
         case ButtonType.INVERTED:
             return "bg-white dark:bg-dark text-primary shadow-lg shadow-neutral-800/40";
         case ButtonType.CTA:
-            return "bg-gradient-to-br bg-[length:200%_200%] animate-gradient-normal from-green-400 via-lime-500 to-amber-500 text-white shadow-lg shadow-green-500/60"
+            return "bg-gradient-to-br bg-[length:200%_200%] animate-gradient-normal from-rose-300 via-primary to-red-200 text-white shadow-lg shadow-primary/50"
         default:
             return `bg-primary shadow-lg shadow-primary/40`
     }
@@ -60,14 +60,14 @@ export default function Button(props: Props) {
         return curTime - lastClick <= (props.cooldown * 1000);
     }
 
-    const className = '!cursor-pointer transition-fast hover:!scale-105 rounded-lg !text-white ' + getButtonStyle(props.type) + ' ' + (props.className || '') + (typeof props.centered !== 'undefined' ? ' flex mx-auto' : '');
+    const className = '!cursor-pointer transition-fast hover:!scale-105 rounded-2xl !text-white ' + getButtonStyle(props.type) + ' ' + (props.className || '') + (typeof props.centered !== 'undefined' ? ' flex mx-auto' : '');
     const styleObj = {
         width: props.width ? props.width + 'rem' : "inherit",
         height: props.height ? props.height + 'rem' : "inherit",
     };
 
     const children = (
-        <div className={'flex gap-[.25rem] justify-center'}>
+        <div className={'flex gap-4 justify-center'}>
             {props.icon &&
                 <GenericImage
                     className='self-center align-middle'

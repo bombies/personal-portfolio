@@ -9,12 +9,6 @@ $transition-fast: 300ms;
 $transition-faster: 100ms;
 $transition-fastest: 75ms;
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 15, 15, 15;
-  --background-end-rgb: 0, 0, 0;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -26,13 +20,8 @@ html {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-                  to bottom,
-                  transparent,
-                  rgb(var(--background-end-rgb))
-  )
-  rgb(var(--background-start-rgb));
+  color: #151515;
+  background: #e8e8e8;
 }
 
 .transition-slow {

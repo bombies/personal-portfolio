@@ -1,10 +1,10 @@
 import './styles/globals.scss'
 import './styles/embla.scss'
-import {Inter} from 'next/font/google'
 import Navbar from "@/components/nav/Navbar";
 import Footer from "@/components/footer/Footer";
-
-const inter = Inter({subsets: ['latin']})
+import {SFProDisplay} from "@/app/fonts/fonts";
+import {NextUIProvider} from "@nextui-org/react";
+import Providers from "@/components/Providers";
 
 export const metadata = {
     title: 'Ajani Green - Full Stack Developer',
@@ -18,10 +18,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-        <body className={`${inter.className}`}>
-        <Navbar/>
-        {children}
-        <Footer />
+        <body className={`${SFProDisplay.className}`}>
+        <Providers>
+            <Navbar/>
+            {children}
+            <Footer />
+        </Providers>
         </body>
         </html>
     )

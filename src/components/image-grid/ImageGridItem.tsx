@@ -14,15 +14,17 @@ export default function ImageGridItem(props: Props) {
 
     return (
         <div
-            className={`w-full h-32 cursor-pointer transition-fast hover:brightness-150 hover:backdrop-blur-lg overflow-hidden p-12 flex justify-center place-content-center border-2 border-neutral-500/50 rounded-xl`}
+            className={`w-full h-32 cursor-pointer transition-fast hover:backdrop-blur-lg overflow-hidden p-12 flex justify-center place-content-center border-2 border-neutral-500/50 rounded-2xl`}
             onClick={() => {
                 router.push(props.href)
             }}
             onMouseEnter={e => {
-                e.currentTarget.style.borderColor = props.color
+                e.currentTarget.style.borderColor = `${props.color}50`
+                e.currentTarget.style.backgroundColor = props.color
             }}
             onMouseLeave={e => {
                 e.currentTarget.style.borderColor = 'rgb(115 115 115 / 0.5)'
+                e.currentTarget.style.backgroundColor = "inherit"
             }}
         >
             <p className={`text-center overflow-hidden overflow-ellipsis tracking-[.25em]`}>{props.title}</p>
