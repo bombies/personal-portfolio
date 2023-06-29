@@ -36,7 +36,7 @@ export default function ProjectCard({title, description, thumbnail, stack, href,
                     }}
                 />
             </div>
-            <div className="w-1/2 phone:w-full pl-6">
+            <div className="w-1/2 phone:w-full pl-6 phone:pl-0">
                 <h3 className="font-bold text-3xl">{title}</h3>
                 <p>{description}</p>
                 <Spacer y={3}/>
