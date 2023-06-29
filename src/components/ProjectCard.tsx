@@ -17,11 +17,14 @@ type Props = {
 
 export default function ProjectCard({title, description, thumbnail, stack, href, demo}: Props) {
     const techStackElements = stack?.map((tool, i) => (
-        <GenericImage
-            key={`${title.toLowerCase()}#stack#${i}`}
-            src={tool}
-            width={1.35}
-        />
+        <div className="p-3 bg-white rounded-full border-1 border-primary/50">
+            <GenericImage
+                key={`${title.toLowerCase()}#stack#${i}`}
+                src={tool}
+                width={1.35}
+            />
+        </div>
+
     ))
 
     return (

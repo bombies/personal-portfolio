@@ -30,7 +30,7 @@ export default function RobertifyPage() {
                     I could go on and on about the many lessons I've learnt from building this application but I think that's better fit for a blog post. Instead, you can enjoy this list of all the technologies used."
                 >
                     <h3 className='text-3xl my-6 font-bold text-secondary'>tech stack</h3>
-                    <div className='flex space-x-8'>
+                    <div className='grid grid-cols-3 phone:grid-cols-2 gap-8'>
                         <List
                             heading='back-end technologies'
                             items={[

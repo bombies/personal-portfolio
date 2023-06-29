@@ -13,7 +13,7 @@ import Carousel from "@/components/Carousel";
 import Button from "@/components/button/Button";
 import {ButtonType} from "@/components/button/ButtonType";
 import {SFMono} from "@/app/fonts/fonts";
-import {Divider} from "@nextui-org/react";
+import {Divider, Spacer} from "@nextui-org/react";
 
 
 interface Props extends React.PropsWithChildren {
@@ -31,7 +31,7 @@ export default function ProjectLayout(props: Props) {
     return (
         <div>
             <div
-                className='py-20 h-[40rem] align-middle'
+                className='py-20 min-h-screen align-middle'
                 style={{
                     backgroundImage: 'url(static/mesh-567.png)'
                 }}
@@ -47,7 +47,7 @@ export default function ProjectLayout(props: Props) {
                                 </div>
                             </Link>
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex phone:flex-col gap-4">
                             <div className='transition-fast hover:scale-[101%]'>
                                 <IconButton
                                     icon={props.icon || projectIcon}
@@ -60,7 +60,7 @@ export default function ProjectLayout(props: Props) {
                             <div>
                                 <h1 className={`text-4xl  max-w-lg phone:text-3xl text-left font-black mb-3 tracking-wide text-white capitalize`}>{props.title}</h1>
                                 <p className={`text-xl phone:text-lg text-left max-w-xl tracking-wide phone:max-w-xs mb-6 text-white`}>{props.subTitle}</p>
-                                <div className='flex gap-4'>
+                                <div className='flex phone:flex-col gap-4'>
                                     <Button
                                         type={ButtonType.CTA}
                                         label='Visit'
@@ -90,6 +90,7 @@ export default function ProjectLayout(props: Props) {
                 <Carousel images={props.images}/>
             }
             {props.children}
+            <Spacer y={16} />
         </div>
 
     )
