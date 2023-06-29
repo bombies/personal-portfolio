@@ -19,7 +19,7 @@ export default function ContentSection(props: Props) {
         <div
             id={props.id}
             className={clsx(
-                'w-full px-48 tablet:px-16 phone:px-8 pt-28 pb-12 mx-auto',
+                'w-full px-48 tablet:px-16 phone:px-8 pt-28 pb-0 mx-auto',
                 props.screenHeight && 'h-screen'
             )}
             style={{

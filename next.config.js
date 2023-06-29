@@ -13,6 +13,11 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
+                hostname: 'i.robertify.me',
+                port: ''
+            },
+            {
+                protocol: 'https',
                 hostname: 'cdn.discordapp.com',
                 port: ''
             }

@@ -1,8 +1,6 @@
 "use client";
 
 import Button from "@/components/button/Button";
-import ImageGrid from "@/components/image-grid/ImageGrid";
-import ImageGridItem from "@/components/image-grid/ImageGridItem";
 import ContentSection from "@/components/ContentSection";
 import List from "@/components/List";
 import {useRef} from "react";
@@ -19,9 +17,13 @@ import javaIcon from "/public/java.svg";
 import kotlinIcon from "/public/kotlin.svg";
 import pythonIcon from "/public/python.svg";
 import cppIcon from "/public/cpp.svg";
-import {Spacer} from "@nextui-org/react";
+import mongoIcon from "/public/mongodb.svg";
+import redisIcon from "/public/redis.svg";
+import angularIcon from "/public/angular.svg";
+import {Divider, Spacer} from "@nextui-org/react";
 import TechStack from "@/components/TechStack";
 import ContactButton from "@/components/nav/ContactButton";
+import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
     const projectRef = useRef<HTMLDivElement>(null)
@@ -114,24 +116,31 @@ export default function Home() {
                     title='my projects'
                     id='projects'
                 >
-                    <div className='w-full mt-12 p-3'>
-                        <ImageGrid>
-                            <ImageGridItem
-                                href='/robertify'
-                                title='robertify'
-                                color='#00D61560'
-                            />
-                            <ImageGridItem
-                                href='/car-mart'
-                                title='the car mart'
-                                color='#009ddb60'
-                            />
-                            <ImageGridItem
-                                href='/greens-pub'
-                                title="green's pub"
-                                color='#26ff8160'
-                            />
-                        </ImageGrid>
+                    <div className='w-full mt-12 p-3 grid grid-cols-1 gap-y-12'>
+                        <ProjectCard
+                            title="Robertify"
+                            description="Robertify is a music bot written completely in Java and Kotlin using JDA."
+                            thumbnail="https://i.robertify.me/images/k59gh.png"
+                            href="/robertify"
+                            demo="https://robertify.me"
+                            stack={[javaIcon, kotlinIcon, reactIcon, nextIcon, tsIcon, tailwindIcon, scssIcon, mongoIcon, redisIcon]}
+                        />
+                        <Divider />
+                        <ProjectCard
+                            title="Green's Restaurant & Pub Management Dashboard"
+                            description="This website was aims to manage the day-to-day stock, employee and invoice operations at a small business known as Green's Restaurant & Pub."
+                            thumbnail="https://i.imgur.com/q8pQXZq.png"
+                            href="/greens-pub"
+                            stack={[reactIcon, nextIcon, tsIcon, tailwindIcon, scssIcon, mongoIcon]}
+                        />
+                        <Divider />
+                        <ProjectCard
+                            title="The Car Mart"
+                            description="The Car Mart is an imaginary business place dedicated to selling cars."
+                            thumbnail="https://i.imgur.com/8x2AYKJ.png"
+                            href="/car-mart"
+                            stack={[angularIcon, tsIcon, tailwindIcon, scssIcon, mongoIcon, redisIcon]}
+                        />
                     </div>
                 </ContentSection>
             </div>
@@ -175,8 +184,9 @@ export default function Home() {
                 id='contact'
                 description="Don't be shy, I'm always open to new opportunities. If you'd like to get in touch, feel free to send me an email."
             >
-                <ContactButton variant="shadow" />
+                <ContactButton variant="shadow"/>
             </ContentSection>
+            <Spacer y={16} />
         </main>
     )
 }
