@@ -12,8 +12,7 @@ import {useRouter} from "next/navigation";
 import Carousel from "@/components/Carousel";
 import Button from "@/components/button/Button";
 import {ButtonType} from "@/components/button/ButtonType";
-import {SFMono} from "@/app/fonts/fonts";
-import {Divider, Spacer} from "@nextui-org/react";
+import {Spacer} from "@nextui-org/react";
 
 
 interface Props extends React.PropsWithChildren {

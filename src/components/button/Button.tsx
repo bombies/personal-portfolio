@@ -1,12 +1,12 @@
 'use client';
 
-import React, { MouseEventHandler, useState } from "react";
+import React, {MouseEventHandler, useState} from "react";
 import Link from "next/link";
-import { ButtonType } from "@/components/button/ButtonType";
-import { StaticImageData } from "next/image";
+import {ButtonType} from "@/components/button/ButtonType";
+import {StaticImageData} from "next/image";
 import GenericImage from "@/components/GenericImage";
-import { ToastDataProps } from "@/components/ToastComponent";
-import { sendToast } from "@/utils/client-utils";
+import {ToastDataProps} from "@/components/ToastComponent";
+import {sendToast} from "@/utils/client-utils";
 import Spinner from "@/components/Spinner";
 
 export const getButtonStyle = (type?: ButtonType): string => {
@@ -127,7 +127,7 @@ export default function Button(props: Props) {
                     >
                         <div
                             className={'flex justify-center p-2 gap-4 mx-auto' + ((props.type === ButtonType.INVERTED || props.type === ButtonType.SECONDARY) ? ' text-primary' : '')}>
-                            {props.isWorking ? <Spinner size={3} /> : children}
+                            {props.isWorking ? <Spinner size={3}/> : children}
                         </div>
                     </button>
             }
