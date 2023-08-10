@@ -22,7 +22,7 @@ import redisIcon from "/public/redis.svg";
 import angularIcon from "/public/angular.svg";
 import {Divider, Spacer} from "@nextui-org/react";
 import TechStack from "@/components/TechStack";
-import ContactButton from "@/components/nav/ContactButton";
+import ContactButton from "@/components/nav/contact/ContactButton";
 import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {

@@ -15,13 +15,13 @@ $transition-fastest: 75ms;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   color: #151515;
   background: #e8e8e8;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .transition-slow {

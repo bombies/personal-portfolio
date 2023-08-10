@@ -30,7 +30,7 @@ export default function ProjectLayout(props: Props) {
     return (
         <div>
             <div
-                className='py-20 min-h-screen align-middle'
+                className='py-20 min-h-[90vh] align-middle'
                 style={{
                     backgroundImage: 'url(static/mesh-567.png)'
                 }}

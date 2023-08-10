@@ -2,91 +2,167 @@
 
 import Link from "next/link";
 import HyperLink from "@/components/HyperLink";
-import {useEffect, useRef, useState} from "react";
-import {CSSTransition} from "react-transition-group";
-import ContactButton from "@/components/nav/ContactButton";
+import React, {Fragment, useCallback, useMemo, useState} from "react";
+import {Navbar as NextNavbar, NavbarBrand, NavbarContent, NavbarItem} from "@nextui-org/navbar"
+import {Switch} from "@nextui-org/switch";
+import {useTheme} from "next-themes";
+import SunIcon from "../icons/SunIcon";
+import MoonIcon from "@/components/icons/MoonIcon";
+import {Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger} from "@nextui-org/dropdown";
+import {Button} from "@nextui-org/react";
+import HamburgerIcon from "@/components/icons/HamburgerIcon";
+import ToolsIcon from "@/components/icons/ToolsIcon";
+import SkillIcon from "@/components/icons/SkillIcon";
+import DocumentIcon from "@/components/icons/DocumentIcon";
+import {useRouter} from "next/navigation";
+import ContactModal from "@/components/nav/contact/ContactModal";
+import ChatIcon from "@/components/icons/ChatIcon";
 
 export default function Navbar() {
-    const [isOpen, setOpen] = useState(false);
-    const mobileNavRef = useRef<any>(null);
-    const hamburgerRef = useRef<any>(null);
+    const {theme, setTheme} = useTheme()
+    const router = useRouter()
+    const [contactModalOpen, setContactModalOpen] = useState(false);
 
-    const toggleOpen = () => {
-        setOpen(lastVal => !lastVal);
-    }
+    const darkModeSwitch = useMemo(() => (
+        <Switch
+            aria-label="Dark mode switch"
+            isSelected={theme === "dark"}
+            thumbIcon={({isSelected}) =>
+                isSelected
+                    ? (<MoonIcon width={12}/>)
+                    : (<SunIcon width={12}/>)
+            }
+            onValueChange={value => setTheme(value ? "dark" : "light")}
+        />
+    ), [setTheme, theme])
 
-    useEffect(() => {
-        const handle = (event: MouseEvent) => {
-            if (mobileNavRef.current && (!mobileNavRef.current.contains(event.target) && !hamburgerRef.current.contains(event.target)))
-                setOpen(false);
-        }
-
-        document.addEventListener('mousedown', handle);
-        return () => {
-            document.removeEventListener('mousedown', handle);
-        }
-    }, [mobileNavRef, hamburgerRef]);
-
-    const nav = (
-        <div
-            ref={mobileNavRef}
-            className={`
-                w-[95%] tablet:w-full
-                text-center bg-black/70
-                tablet:rounded-t-none
-                rounded-2xl border-[1px] border-white/20
-                mx-auto backdrop-blur-md h-fit flex
-                tablet:flex-col justify-between
-                py-8 px-12 text-white
-                `}
-        >
-            <Link href='/' className='font-black text-xl tracking-[.125em] tablet:mb-6 self-center'>Ajani</Link>
-            <div className='flex tablet:flex-col gap-12'>
-                <HyperLink href='/#projects' label='projects' className="font-light text-xl tracking-wide self-center !no-underline"/>
-                <HyperLink href='/#skills' label='skills' className="font-light text-xl tracking-wide self-center !no-underline"/>
-                <p
-                    className='hover:text-primary transition-faster cursor-pointer tracking-wide font-light text-xl self-center'
-                    onClick={e => {
-                        const resumeUrl = 'files/Ajani Green Resume.pdf'
-                        const aTag = document.createElement("a")
-                        aTag.href = resumeUrl
-                        aTag.setAttribute('download', 'Ajani Green Resume.pdf')
-                        document.body.appendChild(aTag)
-                        aTag.click()
-                        aTag.remove()
-                    }}
-                >resume</p>
-                <ContactButton />
-            </div>
-        </div>
-    )
+    const downloadResume = useCallback(() => {
+        const resumeUrl = 'files/Ajani Green Resume.pdf'
+        const aTag = document.createElement("a")
+        aTag.href = resumeUrl
+        aTag.setAttribute('download', 'Ajani Green Resume.pdf')
+        document.body.appendChild(aTag)
+        aTag.click()
+        aTag.remove()
+    }, [])
 
     return (
-        <nav className='sticky top-2 tablet:top-0 z-50 w-full'>
-            <div
-                ref={hamburgerRef}
-                className='z-[51] invisible tablet:visible transition-fast absolute top-5 left-5 flex flex-col gap-[.15rem] w-6 h-12 cursor-pointer'
-                onClick={toggleOpen}>
-                <div
-                    className={'rounded-full h-[.25rem] transition-fast ' + (isOpen ? 'bg-primary' : 'bg-white dark:bg-neutral-900')}></div>
-                <div
-                    className={'rounded-full h-[.25rem] transition-fast ' + (isOpen ? 'bg-primary' : 'bg-white dark:bg-neutral-900')}></div>
-                <div
-                    className={'rounded-full h-[.25rem] transition-fast ' + (isOpen ? 'bg-primary' : 'bg-white dark:bg-neutral-900')}></div>
-            </div>
-            <div className='invisible tablet:visible absolute w-full h-full'>
-                <CSSTransition
-                    in={isOpen}
-                    unmountOnExit
-                    timeout={350}
-                    classNames='navbar'
-                >
-                        {nav}
-                </CSSTransition>
-            </div>
-            <div className='tablet:hidden w-full h-full absolute'>
-                {nav}
-            </div>
-        </nav>
+        <Fragment>
+            <NextNavbar
+                shouldHideOnScroll
+                classNames={{
+                    base: `dark:bg-black/70 dark:text-white`
+                }}
+            >
+                <NavbarBrand>
+                    <Link href='/' className='font-black text-xl tracking-[.125em] self-center'>Ajani</Link>
+                </NavbarBrand>
+                <NavbarContent className="gap-12 tablet:hidden" justify="end">
+                    <NavbarItem>
+                        <HyperLink href='/#projects' label='projects'
+                                   className="font-light text-xl tracking-wide self-center !no-underline"/>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <HyperLink href='/#skills' label='skills'
+                                   className="font-light text-xl tracking-wide self-center !no-underline"/>
+                    </NavbarItem>
+                    <NavbarItem>
+                        <p
+                            className='hover:text-primary transition-faster cursor-pointer tracking-wide font-light text-xl self-center'
+                            onClick={_ => downloadResume()}
+                        >resume</p>
+                    </NavbarItem>
+                    <NavbarItem>
+                        {darkModeSwitch}
+                    </NavbarItem>
+                </NavbarContent>
+                <NavbarContent className="hidden tablet:flex" justify="end">
+                    <Dropdown
+                        className="phone:w-64 w-96"
+                        classNames={{
+                            base: "bg-neutral-100/70 dark:bg-black/70 backdrop-blur-md border-1 dark:border-white/20 border-black/50",
+                        }}
+                    >
+                        <NavbarItem>
+                            <DropdownTrigger>
+                                <Button
+                                    isIconOnly
+                                    variant="light"
+                                    startContent={<HamburgerIcon fill={theme === "dark" ? "#fff" : "#000"}/>}
+                                />
+                            </DropdownTrigger>
+                        </NavbarItem>
+                        <DropdownMenu
+                            aria-label="Mobile Navigation Dropdown"
+                            itemClasses={{
+                                base: `
+                                data-[hover=true]:bg-primary/20
+                                py-4
+                            `
+                            }}
+                            onAction={key => {
+                                switch (key) {
+                                    case "projects": {
+                                        router.push("/#projects")
+                                        break;
+                                    }
+                                    case "skills": {
+                                        router.push("/#skills")
+                                        break;
+                                    }
+                                    case "resume": {
+                                        downloadResume()
+                                        break;
+                                    }
+                                    case "contact": {
+                                        setContactModalOpen(true)
+                                        break;
+                                    }
+                                }
+                            }}
+                        >
+                            <DropdownSection showDivider>
+                                <DropdownItem
+                                    key="projects"
+                                    startContent={<ToolsIcon width={20} fill={"#a90000"}/>}
+                                    description="See all the projects I've been working on."
+                                >
+                                    Projects
+                                </DropdownItem>
+                                <DropdownItem
+                                    key="skills"
+                                    startContent={<SkillIcon width={38} fill={"#a90000"}/>}
+                                    description="View all the skills I have to offer."
+                                >
+                                    Skills
+                                </DropdownItem>
+                                <DropdownItem
+                                    key="resume"
+                                    startContent={<DocumentIcon width={30} fill={"#a90000"}/>}
+                                    description="Download my resume."
+                                >
+                                    Resume
+                                </DropdownItem>
+                                <DropdownItem
+                                    key="contact"
+                                    startContent={<ChatIcon width={30} fill={"#a90000"}/>}
+                                    description="Reach out to me."
+                                >
+                                    Contact Me
+                                </DropdownItem>
+                            </DropdownSection>
+                            <DropdownItem
+                                isReadOnly
+                                key="dark_switch"
+                            >
+                                {darkModeSwitch}
+                            </DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+
+                </NavbarContent>
+            </NextNavbar>
+            <ContactModal modalOpen={contactModalOpen} setModalOpen={setContactModalOpen} />
+        </Fragment>
     )
 }

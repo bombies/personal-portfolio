@@ -18,6 +18,7 @@ export default function GenericModal({title, children, footerContent, ...modalPr
                 modalProps.className,
             )}
             showCloseButton={true}
+            placement={modalProps.placement ?? "center"}
             backdrop="blur"
         >
             <ModalContent>

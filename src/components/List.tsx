@@ -5,7 +5,7 @@ type Props = {
 }
 
 export default function List(props: Props) {
-    const listItems = props.items.map((item, index) => <li key={`${item}:${index}`}><span className='text-[#151515] text-xl'>{item}</span></li>)
+    const listItems = props.items.map((item, index) => <li key={`${item}:${index}`}><span className='text-[#151515] dark:text-[#d5d5d5] text-xl'>{item}</span></li>)
 
     return (
         <div>
