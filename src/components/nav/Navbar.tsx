@@ -73,6 +73,12 @@ export default function Navbar() {
                         >resume</p>
                     </NavbarItem>
                     <NavbarItem>
+                        <p
+                            className='hover:text-primary transition-faster cursor-pointer tracking-wide font-light text-xl self-center'
+                            onClick={_ => setContactModalOpen(true)}
+                        >contact</p>
+                    </NavbarItem>
+                    <NavbarItem>
                         {darkModeSwitch}
                     </NavbarItem>
                 </NavbarContent>
