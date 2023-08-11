@@ -119,7 +119,7 @@ export default function Home() {
                     <div className='w-full mt-12 p-3 grid grid-cols-1 gap-y-12'>
                         <ProjectCard
                             title="Robertify"
-                            description="Robertify is a music bot written completely in Java and Kotlin using JDA."
+                            description="Robertify is a music bot written completely in Java and Kotlin using the Java Discord API (JDA)."
                             thumbnail="https://i.robertify.me/images/k59gh.png"
                             href="/robertify"
                             demo="https://robertify.me"
