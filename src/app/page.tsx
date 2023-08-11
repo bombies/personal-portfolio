@@ -128,7 +128,7 @@ export default function Home() {
                         <Divider />
                         <ProjectCard
                             title="Green's Restaurant & Pub Management Dashboard"
-                            description="This website was aims to manage the day-to-day stock, employee and invoice operations at a small business known as Green's Restaurant & Pub."
+                            description="This website was aimed to manage the day-to-day stock, employee and invoice operations at a small business known as Green's Restaurant & Pub."
                             thumbnail="https://i.imgur.com/q8pQXZq.png"
                             href="/greens-pub"
                             stack={[reactIcon, nextIcon, tsIcon, tailwindIcon, scssIcon, mongoIcon]}
