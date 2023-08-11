@@ -125,7 +125,7 @@ export default function Home() {
                             demo="https://robertify.me"
                             stack={[javaIcon, kotlinIcon, reactIcon, nextIcon, tsIcon, tailwindIcon, scssIcon, mongoIcon, redisIcon]}
                         />
-                        <Divider />
+                        <Divider/>
                         <ProjectCard
                             title="Green's Restaurant & Pub Management Dashboard"
                             description="This website was aimed to manage the day-to-day stock, employee and invoice operations at a small business known as Green's Restaurant & Pub."
@@ -133,10 +133,10 @@ export default function Home() {
                             href="/greens-pub"
                             stack={[reactIcon, nextIcon, tsIcon, tailwindIcon, scssIcon, mongoIcon]}
                         />
-                        <Divider />
+                        <Divider/>
                         <ProjectCard
                             title="The Car Mart"
-                            description="The Car Mart is an imaginary business place dedicated to selling cars."
+                            description="The Car Mart Project is a comprehensive web-based application designed to facilitate the management of car dealerships across the various parishes of Jamaica. The system's primary functionality revolves around performing CRUD (Create, Read, Update, Delete) operations on car listings, while also catering to specific user roles and permissions."
                             thumbnail="https://i.imgur.com/8x2AYKJ.png"
                             href="/car-mart"
                             stack={[angularIcon, tsIcon, tailwindIcon, scssIcon, mongoIcon, redisIcon]}
@@ -186,7 +186,7 @@ export default function Home() {
             >
                 <ContactButton variant="shadow"/>
             </ContentSection>
-            <Spacer y={16} />
+            <Spacer y={16}/>
         </main>
     )
 }
