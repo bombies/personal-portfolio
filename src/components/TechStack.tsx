@@ -26,7 +26,7 @@ export default function TechStack({items}: Props) {
 function TechStackItem({item}: { item: StackItem }) {
     return (
         <Tooltip content={item.label} delay={100} closeDelay={100}>
-            <div className='p-3 w-fit bg-white hover:bg-primary/20 drop-shadow rounded-full transition-fast'>
+            <div className='p-3 w-fit bg-white dark:bg-neutral-800 hover:bg-primary/20 drop-shadow rounded-full transition-fast'>
                 <GenericImage src={item.icon} width={2}/>
             </div>
         </Tooltip>

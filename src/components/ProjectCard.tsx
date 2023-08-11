@@ -19,7 +19,7 @@ export default function ProjectCard({title, description, thumbnail, stack, href,
     const techStackElements = stack?.map((tool, i) => (
         <div
             key={`${title.toLowerCase()}#stack#${i}`}
-            className="p-3 bg-white rounded-full border-1 border-primary/50"
+            className="p-3 bg-white dark:bg-neutral-800 rounded-full border-1 border-primary/50 dark:border-primary"
         >
             <GenericImage
                 src={tool}
