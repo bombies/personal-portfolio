@@ -16,7 +16,7 @@ interface Props extends React.PropsWithChildren {
 
 export default function ContentSection(props: Props) {
     return (
-        <div
+        <section
             id={props.id}
             className={clsx(
                 'w-full px-48 tablet:px-16 phone:px-8 pt-28 pb-0 mx-auto',
@@ -33,12 +33,12 @@ export default function ContentSection(props: Props) {
                     {props.subTitle &&
                         <h1 className='font-semibold text-neutral-400 text-3xl phone:text-lg tracking-widest'>{props.subTitle}</h1>}
                 </div>
-                <div>
+                <article>
                     {props.description &&
                         <p className='tracking-wide font-medium max-w-2xl text-lg phone:text-lg mb-3'>{parse(props.description)}</p>}
                     {props.children}
-                </div>
+                </article>
             </div>
-        </div>
+        </section>
     )
 }

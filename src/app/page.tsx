@@ -135,6 +135,14 @@ export default function Home() {
                         />
                         <Divider/>
                         <ProjectCard
+                            title="MD-GPT"
+                            description="An AI-Powered chat-based tool to help medical doctors with patient diagnosis."
+                            thumbnail="https://i.imgur.com/D1KfkO2.png"
+                            href="/md-gpt"
+                            stack={[reactIcon, nextIcon, tsIcon, tailwindIcon, scssIcon, mongoIcon, pythonIcon]}
+                        />
+                        <Divider/>
+                        <ProjectCard
                             title="The Car Mart"
                             description="The Car Mart Project is a comprehensive web-based application designed to facilitate the management of car dealerships across the various parishes of Jamaica. The system's primary functionality revolves around performing CRUD (Create, Read, Update, Delete) operations on car listings, while also catering to specific user roles and permissions."
                             thumbnail="https://i.imgur.com/8x2AYKJ.png"
