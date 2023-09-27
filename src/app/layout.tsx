@@ -3,7 +3,6 @@ import './styles/embla.scss'
 import Navbar from "@/components/nav/Navbar";
 import Footer from "@/components/footer/Footer";
 import {SFProDisplay} from "@/app/fonts/fonts";
-import {NextUIProvider} from "@nextui-org/react";
 import Providers from "@/components/providers/Providers";
 import clsx from "clsx";
 
