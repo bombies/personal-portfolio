@@ -24,8 +24,8 @@ module.exports = {
                 'bounce-slow': 'bounce 5s infinite'
             },
             colors: {
-                primary: "#c10000",
-                secondary: "#ff5858",
+                primary: "#c1189b",
+                secondary: "#b0007e",
                 danger: "#900000",
                 warning: "#ffa700",
             },

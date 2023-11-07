@@ -29,7 +29,7 @@ export default function ContactModal({modalOpen, setModalOpen}: Props) {
                         fill={theme === "dark" ? "#fff" : "#000"}
                         width={28}
                     />
-                    <p className="font-bold text-3xl self-center">Email</p>
+                    <p className="font-bold text-3xl self-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Email</p>
                 </div>
                 <HyperLink href="mailto:ajani.green@outlook.com" label="ajani.green@outlook.com"></HyperLink>
             </div>
@@ -40,7 +40,7 @@ export default function ContactModal({modalOpen, setModalOpen}: Props) {
                         fill={theme === "dark" ? "#fff" : "#000"}
                         width={28}
                     />
-                    <p className="font-bold text-3xl self-center">LinkedIn</p>
+                    <p className="font-bold text-3xl self-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">LinkedIn</p>
                 </div>
                 <HyperLink href="https://www.linkedin.com/in/ajani-green-83b469225/"
                            label="Ajani Green"></HyperLink>
@@ -52,7 +52,7 @@ export default function ContactModal({modalOpen, setModalOpen}: Props) {
                         fill={theme === "dark" ? "#fff" : "#000"}
                         width={28}
                     />
-                    <p className="font-bold text-3xl self-center">GitHub</p>
+                    <p className="font-bold text-3xl self-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">GitHub</p>
                 </div>
                 <HyperLink href="https://github.com/bombies" label="bombies"></HyperLink>
             </div>

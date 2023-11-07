@@ -1,6 +1,5 @@
 "use client";
 
-import Button from "@/components/button/Button";
 import ContentSection from "@/components/ContentSection";
 import List from "@/components/List";
 import {useRef} from "react";
@@ -20,10 +19,12 @@ import cppIcon from "/public/cpp.svg";
 import mongoIcon from "/public/mongodb.svg";
 import redisIcon from "/public/redis.svg";
 import angularIcon from "/public/angular.svg";
-import {Divider, Spacer} from "@nextui-org/react";
+import {Button, Divider, Spacer} from "@nextui-org/react";
 import TechStack from "@/components/TechStack";
 import ContactButton from "@/components/nav/contact/ContactButton";
 import ProjectCard from "@/components/ProjectCard";
+import {Card, CardBody} from "@nextui-org/card";
+import CompassIcon from "@/components/icons/CompassIcon";
 
 export default function Home() {
     const projectRef = useRef<HTMLDivElement>(null)
@@ -31,85 +32,96 @@ export default function Home() {
     return (
         <main>
             <div
-                className='pt-32 min-h-screen align-middle'
+                className='min-h-screen flex justify-center items-center'
                 style={{
-                    backgroundImage: 'url(static/mesh-567.png)'
+                    backgroundImage: 'url(static/blur.png)',
                 }}
             >
-                <div className='p-24 phone:p-6 flex justify-center'>
-                    <div>
-                        <h1 className={`text-7xl phone:text-5xl text-left font-black mb-3 tracking-wide text-white`}>hey,<br/> i&apos;m
-                            Ajani.
-                        </h1>
-                        <p className={`text-xl phone:text-lg text-left max-w-xl tracking-wide phone:max-w-[15rem] mb-6 text-white`}>I&apos;m
-                            a
-                            full stack software engineer. I have a passion for creating all sorts of software but I
-                            enjoy
-                            web development the most.</p>
-                        <Button
-                            icon={compassIcon}
-                            label='Explore'
-                            width={10}
-                            height={3}
-                            onClick={() => {
-                                projectRef.current?.scrollIntoView({
-                                    behavior: 'smooth'
-                                })
-                            }}
-                        />
-                        <Spacer y={12}/>
-                        <TechStack items={[
-                            {
-                                label: "HTML",
-                                icon: htmlIcon
-                            },
-                            {
-                                label: "CSS3",
-                                icon: cssIcon
-                            },
-                            {
-                                label: "JavaScript",
-                                icon: jsIcon
-                            },
-                            {
-                                label: "TypeScript",
-                                icon: tsIcon
-                            },
-                            {
-                                label: "ReactJS",
-                                icon: reactIcon
-                            },
-                            {
-                                label: "Next.js",
-                                icon: nextIcon
-                            },
-                            {
-                                label: "TailwindCSS",
-                                icon: tailwindIcon
-                            },
-                            {
-                                label: "SCSS",
-                                icon: scssIcon
-                            },
-                            {
-                                label: "Java",
-                                icon: javaIcon
-                            },
-                            {
-                                label: "Kotlin",
-                                icon: kotlinIcon
-                            },
-                            {
-                                label: "Python",
-                                icon: pythonIcon
-                            },
-                            {
-                                label: "C/C++",
-                                icon: cppIcon
-                            },
-                        ]}/>
-                    </div>
-                </div>
+                <Card
+                    classNames={{
+                        base: "w-fit dark:bg-neutral-900/50 bg-neutral-400/40 p-12 backdrop-blur-md",
+                    }}
+                >
+                    <CardBody>
+                        <div className='flex justify-center'>
+                            <div>
+                                <h1 className={`text-7xl phone:text-5xl text-left font-black mb-3 tracking-wide text-white drop-shadow-lg`}>hey,<br/> i&apos;m <span
+                                    className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Ajani</span>.
+                                </h1>
+                                <p className={`text-xl phone:text-lg text-left max-w-xl tracking-wide phone:max-w-[15rem] mb-6 text-white`}>I&apos;m
+                                    a
+                                    full stack software engineer. I have a passion for creating all sorts of software
+                                    but I
+                                    enjoy
+                                    web development the most.</p>
+                                <Button
+                                    size="lg"
+                                    variant="shadow"
+                                    color="primary"
+                                    startContent={<CompassIcon/>}
+                                    onPress={() => {
+                                        projectRef.current?.scrollIntoView({
+                                            behavior: 'smooth'
+                                        })
+                                    }}
+                                >
+                                    Explore
+                                </Button>
+                                <Spacer y={12}/>
+                                <TechStack items={[
+                                    {
+                                        label: "HTML",
+                                        icon: htmlIcon
+                                    },
+                                    {
+                                        label: "CSS3",
+                                        icon: cssIcon
+                                    },
+                                    {
+                                        label: "JavaScript",
+                                        icon: jsIcon
+                                    },
+                                    {
+                                        label: "TypeScript",
+                                        icon: tsIcon
+                                    },
+                                    {
+                                        label: "ReactJS",
+                                        icon: reactIcon
+                                    },
+                                    {
+                                        label: "Next.js",
+                                        icon: nextIcon
+                                    },
+                                    {
+                                        label: "TailwindCSS",
+                                        icon: tailwindIcon
+                                    },
+                                    {
+                                        label: "SCSS",
+                                        icon: scssIcon
+                                    },
+                                    {
+                                        label: "Java",
+                                        icon: javaIcon
+                                    },
+                                    {
+                                        label: "Kotlin",
+                                        icon: kotlinIcon
+                                    },
+                                    {
+                                        label: "Python",
+                                        icon: pythonIcon
+                                    },
+                                    {
+                                        label: "C/C++",
+                                        icon: cppIcon
+                                    },
+                                ]}/>
+                            </div>
+                        </div>
+                    </CardBody>
+                </Card>
             </div>
             <div ref={projectRef}>
                 <ContentSection

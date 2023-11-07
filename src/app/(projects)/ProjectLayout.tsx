@@ -1,18 +1,14 @@
 'use client'
 
-import localFont from "next/font/local";
-import GenericImage from "@/components/GenericImage";
-import Link from "next/link";
 import projectIcon from '@/../public/project-white.svg'
-import backIcon from '@/../public/back.svg'
-import linkIcon from '@/../public/link.svg'
 import React from "react";
 import IconButton from "@/components/button/IconButton";
 import {useRouter} from "next/navigation";
 import Carousel from "@/components/Carousel";
-import Button from "@/components/button/Button";
-import {ButtonType} from "@/components/button/ButtonType";
-import {Spacer} from "@nextui-org/react";
+import {Button, Link, Spacer} from "@nextui-org/react";
+import {Card, CardBody} from "@nextui-org/card";
+import BackIcon from "@/components/icons/BackIcon";
+import LinkIcon from "@/components/icons/LinkIcon";
 
 
 interface Props extends React.PropsWithChildren {
@@ -30,66 +26,73 @@ export default function ProjectLayout(props: Props) {
     return (
         <div>
             <div
-                className='py-20 min-h-[90vh] align-middle'
+                className='min-h-[90vh] flex justify-center items-center'
                 style={{
-                    backgroundImage: 'url(static/mesh-567.png)'
+                    backgroundImage: 'url(static/blur.png)'
                 }}
             >
-                <div className='p-24 phone:p-6 flex justify-center'>
-                    <div>
-                        <div className='h-fit w-fit mb-12'>
-                            <Link href='/'>
-                                <div
-                                    className='bg-black/40 hover:bg-black/70 backdrop-blur-md p-4 border-1 border-white/20 rounded-2xl flex gap-4 my-auto hover:scale-[103%] transition-fast'>
-                                    <GenericImage className='self-center' src={backIcon} width={1.5}/>
-                                    <p className='text-lg text-primary relative self-center'>Go Home</p>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="flex phone:flex-col gap-4">
-                            <div className='transition-fast hover:scale-[101%]'>
-                                <IconButton
-                                    icon={props.icon || projectIcon}
-                                    size={8}
-                                    className='animate-bounce-slow'
-                                    onClick={() => {
-                                        router.push(props.website)
-                                    }}/>
+                <Card
+                    classNames={{
+                        base: "w-fit dark:bg-neutral-900/50 bg-neutral-300/40 p-12 backdrop-blur-md",
+                    }}
+                >
+                    <CardBody>
+                        <div>
+                            <div className='h-fit w-fit mb-12'>
+                                <Link href='/'>
+                                    <div
+                                        className='bg-neutral-100 text-primary dark:bg-black/20 hover:dark:bg-black/70 backdrop-blur-md p-4 border-1 border-primary/70 dark:border-white/20 rounded-2xl flex gap-4 my-auto hover:scale-[103%] transition-fast'>
+                                        <BackIcon/>
+                                        <p className='text-lg relative self-center'>Go Home</p>
+                                    </div>
+                                </Link>
                             </div>
-                            <div>
-                                <h1 className={`text-4xl  max-w-lg phone:text-3xl text-left font-black mb-3 tracking-wide text-white capitalize`}>{props.title}</h1>
-                                <p className={`text-xl phone:text-lg text-left max-w-xl tracking-wide phone:max-w-xs mb-6 text-white`}>{props.subTitle}</p>
-                                <div className='flex phone:flex-col gap-4'>
-                                    <Button
-                                        type={ButtonType.CTA}
-                                        label='Visit'
-                                        href={props.website}
-                                        icon={linkIcon}
-                                        width={9}
-                                        height={3}
-                                    />
-                                    {props.secondaryWebsite &&
+                            <div className="flex phone:flex-col gap-4">
+                                <div className='transition-fast hover:scale-[101%]'>
+                                    <IconButton
+                                        icon={props.icon || projectIcon}
+                                        size={5}
+                                        className='animate-bounce-slow'
+                                        onClick={() => {
+                                            router.push(props.website)
+                                        }}/>
+                                </div>
+                                <div>
+                                    <h1 className={`text-6xl  max-w-lg phone:text-3xl text-left font-black mb-3 tracking-wide capitalize text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-rose-600 drop-shadow-md`}>{props.title}</h1>
+                                    <p className={`text-xl phone:text-lg text-left max-w-xl tracking-wide phone:max-w-xs mb-6 text-white`}>{props.subTitle}</p>
+                                    <div className='flex phone:flex-col gap-4'>
                                         <Button
-                                            type={ButtonType.CTA}
-                                            label='Also Visit'
-                                            href={props.secondaryWebsite}
-                                            icon={linkIcon}
-                                            width={9}
-                                            height={3}
-                                        />
-                                    }
+                                            size="lg"
+                                            as={Link}
+                                            isExternal
+                                            showAnchorIcon
+                                            color="primary"
+                                            href={props.website}
+                                        >Visit</Button>
+                                        {props.secondaryWebsite &&
+                                            <Button
+                                                size="lg"
+                                                as={Link}
+                                                isExternal
+                                                color="secondary"
+                                                href={props.secondaryWebsite}
+                                            >
+                                                Also Visit
+                                            </Button>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </CardBody>
+                </Card>
             </div>
             {
                 props.images.length &&
                 <Carousel images={props.images}/>
             }
             {props.children}
-            <Spacer y={16} />
+            <Spacer y={16}/>
         </div>
 
     )

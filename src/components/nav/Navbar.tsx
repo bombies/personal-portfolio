@@ -55,7 +55,7 @@ export default function Navbar() {
                 }}
             >
                 <NavbarBrand>
-                    <Link href='/' className='font-black text-xl tracking-[.125em] self-center'>Ajani</Link>
+                    <Link href='/' className='font-black text-xl tracking-[.125em] self-center'><span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Ajani</span></Link>
                 </NavbarBrand>
                 <NavbarContent className="gap-12 tablet:hidden" justify="end">
                     <NavbarItem>
@@ -84,10 +84,7 @@ export default function Navbar() {
                 </NavbarContent>
                 <NavbarContent className="hidden tablet:flex" justify="end">
                     <Dropdown
-                        className="phone:w-64 w-96"
-                        classNames={{
-                            base: "bg-neutral-100/70 dark:bg-black/70 backdrop-blur-md border-1 dark:border-white/20 border-black/50",
-                        }}
+                        className="phone:w-64 w-96 bg-neutral-100/70 dark:bg-black/70 backdrop-blur-md border-1 dark:border-white/20 border-black/50"
                     >
                         <NavbarItem>
                             <DropdownTrigger>
@@ -130,28 +127,28 @@ export default function Navbar() {
                             <DropdownSection showDivider>
                                 <DropdownItem
                                     key="projects"
-                                    startContent={<ToolsIcon width={20} fill={"#a90000"}/>}
+                                    startContent={<ToolsIcon width={20}/>}
                                     description="See all the projects I've been working on."
                                 >
                                     Projects
                                 </DropdownItem>
                                 <DropdownItem
                                     key="skills"
-                                    startContent={<SkillIcon width={38} fill={"#a90000"}/>}
+                                    startContent={<SkillIcon width={38}/>}
                                     description="View all the skills I have to offer."
                                 >
                                     Skills
                                 </DropdownItem>
                                 <DropdownItem
                                     key="resume"
-                                    startContent={<DocumentIcon width={30} fill={"#a90000"}/>}
+                                    startContent={<DocumentIcon width={30}/>}
                                     description="Download my resume."
                                 >
                                     Resume
                                 </DropdownItem>
                                 <DropdownItem
                                     key="contact"
-                                    startContent={<ChatIcon width={30} fill={"#a90000"}/>}
+                                    startContent={<ChatIcon width={30}/>}
                                     description="Reach out to me."
                                 >
                                     Contact Me

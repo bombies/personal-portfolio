@@ -29,7 +29,7 @@ export default function ContentSection(props: Props) {
             <div ref={props.ref}>
                 <div className='mb-6'>
                     {props.title &&
-                        <h1 className='font-bold text-5xl phone:text-3xl phone:text-center text-primary'>{props.title}</h1>}
+                        <h1 className='font-bold text-5xl phone:text-3xl phone:text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>{props.title}</h1>}
                     {props.subTitle &&
                         <h1 className='font-semibold text-neutral-400 text-3xl phone:text-lg tracking-widest'>{props.subTitle}</h1>}
                 </div>
