@@ -20,7 +20,7 @@
     "embla-carousel-react": "^8.0.0-rc14",
     "eslint": "8.53.0",
     "eslint-config-next": "14.0.1",
-    "framer-motion": "^10.15.1",
+    "framer-motion": "^10.16.4",
     "html-react-parser": "^5.0.6",
     "next": "^14.0.1",
     "next-redux-wrapper": "^8.1.0",
