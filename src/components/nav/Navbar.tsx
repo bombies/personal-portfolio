@@ -29,8 +29,8 @@ export default function Navbar() {
             isSelected={theme === "dark"}
             thumbIcon={({isSelected}) =>
                 isSelected
-                    ? (<MoonIcon width={12}/>)
-                    : (<SunIcon width={12}/>)
+                    ? (<MoonIcon width={12} fill="#c1189b"/>)
+                    : (<SunIcon width={12} fill="#c1189b"/>)
             }
             onValueChange={value => setTheme(value ? "dark" : "light")}
         />
