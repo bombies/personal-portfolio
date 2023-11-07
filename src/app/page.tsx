@@ -25,6 +25,7 @@ import ContactButton from "@/components/nav/contact/ContactButton";
 import ProjectCard from "@/components/ProjectCard";
 import {Card, CardBody} from "@nextui-org/card";
 import CompassIcon from "@/components/icons/CompassIcon";
+import Image from "next/image";
 
 export default function Home() {
     const projectRef = useRef<HTMLDivElement>(null)
@@ -33,95 +34,104 @@ export default function Home() {
         <main>
             <div
                 className='min-h-screen flex justify-center items-center'
-                style={{
-                    backgroundImage: 'url(static/blur.png)',
-                }}
             >
-                <Card
-                    classNames={{
-                        base: "w-fit dark:bg-neutral-900/50 bg-neutral-400/40 p-12 backdrop-blur-md",
-                    }}
-                >
-                    <CardBody>
-                        <div className='flex justify-center'>
-                            <div>
-                                <h1 className={`text-7xl phone:text-5xl text-left font-black mb-3 tracking-wide text-white drop-shadow-lg`}>hey,<br/> i&apos;m <span
-                                    className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Ajani</span>.
-                                </h1>
-                                <p className={`text-xl phone:text-lg text-left max-w-xl tracking-wide phone:max-w-[15rem] mb-6 text-white`}>I&apos;m
-                                    a
-                                    full stack software engineer. I have a passion for creating all sorts of software
-                                    but I
-                                    enjoy
-                                    web development the most.</p>
-                                <Button
-                                    size="lg"
-                                    variant="shadow"
-                                    color="primary"
-                                    startContent={<CompassIcon/>}
-                                    onPress={() => {
-                                        projectRef.current?.scrollIntoView({
-                                            behavior: 'smooth'
-                                        })
-                                    }}
-                                >
-                                    Explore
-                                </Button>
-                                <Spacer y={12}/>
-                                <TechStack items={[
-                                    {
-                                        label: "HTML",
-                                        icon: htmlIcon
-                                    },
-                                    {
-                                        label: "CSS3",
-                                        icon: cssIcon
-                                    },
-                                    {
-                                        label: "JavaScript",
-                                        icon: jsIcon
-                                    },
-                                    {
-                                        label: "TypeScript",
-                                        icon: tsIcon
-                                    },
-                                    {
-                                        label: "ReactJS",
-                                        icon: reactIcon
-                                    },
-                                    {
-                                        label: "Next.js",
-                                        icon: nextIcon
-                                    },
-                                    {
-                                        label: "TailwindCSS",
-                                        icon: tailwindIcon
-                                    },
-                                    {
-                                        label: "SCSS",
-                                        icon: scssIcon
-                                    },
-                                    {
-                                        label: "Java",
-                                        icon: javaIcon
-                                    },
-                                    {
-                                        label: "Kotlin",
-                                        icon: kotlinIcon
-                                    },
-                                    {
-                                        label: "Python",
-                                        icon: pythonIcon
-                                    },
-                                    {
-                                        label: "C/C++",
-                                        icon: cppIcon
-                                    },
-                                ]}/>
+                <div className="absolute w-full h-full">
+                    <Image
+                        priority
+                        src={"/static/blur.png"}
+                        alt=""
+                        fill
+                        objectFit='cover'
+                    />
+                </div>
+                <div className="z-10">
+                    <Card
+                        classNames={{
+                            base: "w-fit dark:bg-neutral-900/50 bg-neutral-400/40 p-12 backdrop-blur-md",
+                        }}
+                    >
+                        <CardBody>
+                            <div className='flex justify-center'>
+                                <div>
+                                    <h1 className={`text-7xl phone:text-5xl text-left font-black mb-3 tracking-wide text-white drop-shadow-lg`}>hey,<br/> i&apos;m <span
+                                        className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Ajani</span>.
+                                    </h1>
+                                    <p className={`text-xl phone:text-lg text-left max-w-xl tracking-wide phone:max-w-[15rem] mb-6 text-white`}>I&apos;m
+                                        a
+                                        full stack software engineer. I have a passion for creating all sorts of
+                                        software
+                                        but I
+                                        enjoy
+                                        web development the most.</p>
+                                    <Button
+                                        size="lg"
+                                        variant="shadow"
+                                        color="primary"
+                                        startContent={<CompassIcon/>}
+                                        onPress={() => {
+                                            projectRef.current?.scrollIntoView({
+                                                behavior: 'smooth'
+                                            })
+                                        }}
+                                    >
+                                        Explore
+                                    </Button>
+                                    <Spacer y={12}/>
+                                    <TechStack items={[
+                                        {
+                                            label: "HTML",
+                                            icon: htmlIcon
+                                        },
+                                        {
+                                            label: "CSS3",
+                                            icon: cssIcon
+                                        },
+                                        {
+                                            label: "JavaScript",
+                                            icon: jsIcon
+                                        },
+                                        {
+                                            label: "TypeScript",
+                                            icon: tsIcon
+                                        },
+                                        {
+                                            label: "ReactJS",
+                                            icon: reactIcon
+                                        },
+                                        {
+                                            label: "Next.js",
+                                            icon: nextIcon
+                                        },
+                                        {
+                                            label: "TailwindCSS",
+                                            icon: tailwindIcon
+                                        },
+                                        {
+                                            label: "SCSS",
+                                            icon: scssIcon
+                                        },
+                                        {
+                                            label: "Java",
+                                            icon: javaIcon
+                                        },
+                                        {
+                                            label: "Kotlin",
+                                            icon: kotlinIcon
+                                        },
+                                        {
+                                            label: "Python",
+                                            icon: pythonIcon
+                                        },
+                                        {
+                                            label: "C/C++",
+                                            icon: cppIcon
+                                        },
+                                    ]}/>
+                                </div>
                             </div>
-                        </div>
-                    </CardBody>
-                </Card>
+                        </CardBody>
+                    </Card>
+                </div>
             </div>
             <div ref={projectRef}>
                 <ContentSection
