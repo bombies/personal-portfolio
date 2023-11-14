@@ -28,7 +28,7 @@ export default function ProjectLayout(props: Props) {
             <div
                 className='min-h-[90vh] w-full flex justify-center items-center'
             >
-                <div className="absolute w-full h-full">
+                <div className="absolute w-full h-full blur-md">
                     <Image
                         priority
                         src={"/static/blur.png"}

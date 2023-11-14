@@ -3,7 +3,6 @@
 import ContentSection from "@/components/ContentSection";
 import List from "@/components/List";
 import {useRef} from "react";
-import compassIcon from "/public/compass.svg";
 import htmlIcon from "/public/html.svg";
 import cssIcon from "/public/css3.svg";
 import jsIcon from "/public/javascript.svg";
@@ -19,6 +18,8 @@ import cppIcon from "/public/cpp.svg";
 import mongoIcon from "/public/mongodb.svg";
 import redisIcon from "/public/redis.svg";
 import angularIcon from "/public/angular.svg";
+import postgresIcon from "/public/postgres.svg";
+import awsIcon from "/public/aws.svg";
 import {Button, Divider, Spacer} from "@nextui-org/react";
 import TechStack from "@/components/TechStack";
 import ContactButton from "@/components/nav/contact/ContactButton";
@@ -146,6 +147,14 @@ export default function Home() {
                             href="/robertify"
                             demo="https://robertify.me"
                             stack={[javaIcon, kotlinIcon, reactIcon, nextIcon, tsIcon, tailwindIcon, scssIcon, mongoIcon, redisIcon]}
+                        />
+                        <Divider/>
+                        <ProjectCard
+                            title="Dream Logger"
+                            description="DreamLogger is a Next.js web application, seamlessly blending captivating user interfaces with robust backend technologies like Prisma, AWS, and PostgreSQL, to provide dream enthusiasts with a secure, feature-rich platform for logging, exploring, and sharing the intricate landscapes of their dreams."
+                            thumbnail="https://i.ajani.me/images/mo9ac.jpg"
+                            href="/dream-logger"
+                            stack={[reactIcon, nextIcon, tsIcon, tailwindIcon, scssIcon, postgresIcon, awsIcon]}
                         />
                         <Divider/>
                         <ProjectCard
