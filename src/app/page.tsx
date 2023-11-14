@@ -154,6 +154,7 @@ export default function Home() {
                             description="DreamLogger is a Next.js web application, seamlessly blending captivating user interfaces with robust backend technologies like Prisma, AWS, and PostgreSQL, to provide dream enthusiasts with a secure, feature-rich platform for logging, exploring, and sharing the intricate landscapes of their dreams."
                             thumbnail="https://i.ajani.me/images/mo9ac.jpg"
                             href="/dream-logger"
+                            demo="https://dreamlogger.ajani.me"
                             stack={[reactIcon, nextIcon, tsIcon, tailwindIcon, scssIcon, postgresIcon, awsIcon]}
                         />
                         <Divider/>
